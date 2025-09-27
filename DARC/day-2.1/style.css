@@ -4,7 +4,7 @@
 }
 
 .main{
-    width: 100%;
+    width: 100vw;
     background: linear-gradient(to top, rgba(0,0,0,.5)50%,rgba(0,0,0,.5)50%), url(../images/istockphoto-1317323736-612x612.jpg);
     background-position: center;
     background-size: cover;
@@ -12,15 +12,20 @@
 }
 
 .navbar{
-    width: 100%;
+    width: 1200px;
     height: 75px;
     margin: auto;
+    padding-top: 10px;
+    display: flex;
+    justify-content: space-evenly;
+    backdrop-filter: blur(5px);
+    border-radius: 20px;
 }
 
 .icon{
     width: 200px;
-    float: left;
     height: 70px;
+    padding: 1%;
 }
 
 .logo{
@@ -28,35 +33,32 @@
     font-size: 35px;
     font-family: "Ubuntu", sans-serif;
     font-weight: 600;
-    padding-top: 10px;
-    padding-left: 20px;
-    float: left;
+    padding-top: auto;
+    padding-left: auto;
 }
 
 .menu{
     width: 400px;
-    float: left;
     height: 70px;
+    padding-top: 25px;
 }
 
 ul{
-    float: left;
     display: flex;
-    justify-content: center;
+    justify-content: space-between;
     align-items: center;
 }
 
 ul li{
     list-style: none;
-    margin-left: 60px;
-    margin-top: 27px;
-    font-size: 14px;
+    margin-left: 50px;
+    font-size: 15px;
 }
 
 ul li a{
     color: white;
     text-decoration: none;
-    font-family: Arial;
+    font-family: 'Ubuntu', serif;
     font-weight: bold;
     transition: .4s ease-in-out;
 }
@@ -67,7 +69,6 @@ ul li a:hover{
 
 .search {
     width: 330px;
-    float: left;
     margin-left: 270px;
 }
 
@@ -179,4 +180,70 @@ ul li a:hover{
     border-radius: 10px;
     margin: 2px;
     padding: 8px;
+}
+
+.form input{
+    width: 240px;
+    height: 35px;
+    background: transparent;
+    border-bottom: 1px solid orange;
+    border-top: none;
+    border-right: none;
+    border-left: none;
+    color: #fff;
+    font-size: 15px;
+    letter-spacing: 1px;
+    margin-top: 30px;
+    font-family: 'Ubuntu', sans-serif;
+}
+
+.form input:focus{
+    outline: none;
+}
+
+::placeholder{
+    color: white;
+    font-family: Arial;
+}
+
+.btnn{
+    width: 240px;
+    height: 40px;
+    background: orange;
+    border: none;
+    margin-top: 30px;
+    font-size: 18px;
+    border-radius: 10px;
+    cursor: pointer;
+    color: #fff;
+}
+
+.btnn:hover{
+    background: #fff;
+    color: orange;
+    transition: .4s;
+}
+
+.btnn a{
+    text-decoration: none;
+    color: black;
+    font-weight: bold;
+}
+
+.form .link{
+    font-family: arial;
+    font-size: 17px;
+    padding-top: 20px;
+    text-align: center;
+}
+
+.form .link a{
+    text-decoration: none;
+    color: orange;
+}
+
+.liw{
+    padding-top: 50px;
+    padding-bottom: 10px;
+    text-align: center;
 }
