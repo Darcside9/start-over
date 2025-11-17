@@ -1,0 +1,627 @@
+history
+sudo apt install qemu-kvm virt-manager
+sudo modprobe -r kvm
+sudo modprobe -r kvm_intel
+lsmod | grep kvm
+sudo apt install '/home/darc/Downloads/Programs/virtualbox-7.2_7.2.4-170995~Ubuntu~plucky_amd64.deb'
+sudo apt remove virtualbox
+sudo apt install virtualbox
+ls
+sudo cp -r /home/darc/Downloads/Win11_25H2_English_x64.iso /media/darc/Ventoy/
+sudo chmod +x VTOYEFI/
+sudo chmod +x Ventoy/
+..
+./VentoyGUI.x86_64
+./Ventoy2Disk.sh -l
+./Ventoy2Disk.sh -i
+./Ventoy2Disk.sh
+ventoy-1.1.07/
+tar -xf ventoy-1.1.07-linux.tar.gz
+Downloads/
+sudo ./unetbootin-linux64-702.bin
+./unetbootin-linux64-702.bin
+sudo chmod +x unetbootin-linux64-702.bin
+cd
+balena-etcher
+sudo apt install ./balena-etcher_2.1.4_amd64.deb
+sudo apt install ./balena-etcher_******_amd64.deb
+sudo chmod 4755 balenaEtcher
+sudo ./balena-etcher
+./balena-etcher
+sudo apt install ./balenaEtcher
+balenaEtcher-linux-x64/
+balenaEtcher-linux-x64-2.1.4/
+sudo apt install ./balenaEtcher-linux-x64-2.1.4.zip
+mv balenaEtcher-linux-x64-2.1.4.deb balenaEtcher-linux-x64-2.1.4.zip
+sudo apt install ./balenaEtcher-linux-x64-2.1.4.deb
+sudo chmod +x balenaEtcher-linux-x64-2.1.4.deb
+mv balenaEtcher-linux-x64-2.1.4.zip balenaEtcher-linux-x64-2.1.4.deb
+sudo ./balenaEtcher
+sudo chmod +x balenaEtcher
+sudo systemctl hibernate -i
+sudo systemctl hibernate
+sudo update-grub
+sudo systemctl restart systemd-logind
+sudo systemctl restart
+sudo restart
+sudo apt install gparted
+sudo apt update
+sudo pluma /etc/systemd/logind.conf
+sudo nano /etc/systemd/logind.conf
+sudo kill 3330
+.darc-ai/
+./D∆RC\ Modular\ AI\ Installation\ Script.sh --verbose
+./D∆RC\ Modular\ AI\ Installation\ Script.sh --gui
+zenity
+./D∆RC\ Modular\ AI\ Installation\ Script.sh --verbose --gui
+zenity ./D∆RC\ Modular\ AI\ Installation\ Script.sh
+ollama -v
+cat ollama-install.log
+logs/
+./D∆RC\ Modular\ AI\ Installation\ Script.sh
+Documents/DARC/day-2.1/
+cat apt-update-error.log
+cat install.log
+zenity --error
+zenity popup
+zenity pop
+zenity alert
+sudo apt install zenity
+docker compose up -d
+sudo lsof -i :5678
+sudo kill 2307 2319
+docker ps -a
+docker stop n8n
+docker rm n8n
+docker compose down
+n8n/
+sudo systemctl disable NetworkManager-wait-online.service
+sudo systemctl disable kdump-tools.service
+sudo systemctl disable man-db.timer
+sudo reboot
+
+sudo systemctl mask fwupd.service
+
+sudo snap remove todoist
+snap list
+sudo systemctl disable man-db.timer
+
+sudo systemctl disable kdump-tools.service
+
+sudo nano /etc/default/grub
+sudo systemctl disable NetworkManager-wait-online.service
+echo $XDG_SESSION_TYPE
+sudo apt autoclean
+sudo apt autoremove
+sudo apt install zram-config
+echo "vm.swappiness=10" | sudo tee -a /etc/sysctl.conf
+sudo apt install preload
+gnome-session-properties
+sudo tune2fs -c 30 /dev/sda1
+sudo update grub
+systemd-analyze blame
+systemd-analyze critical-chain
+cat docker-compose.yml
+docker run -d \
+--name n8n \
+--restart unless-stopped \
+-p 5678:5678 \
+-e GENERIC_TIMEZONE="Africa/Lagos" \
+-e TZ="Africa/Lagos" \
+-e N8N_ENFORCE_SETTINGS_FILE_PERMISSIONS=true \
+-v n8n_data:/home/node/.n8n \
+docker.n8n.io/n8nio/n8n \
+start --tunnel
+docker rm 51fc47b1a489
+docker stop n8n
+docker rm n8n
+# Or if you used the command with --rm:
+# The container is likely already gone.
+docker stop 51fc47b1a489
+docker  compose down
+docker  compose up -d
+docker  compose pull
+docker run --name=n8n -d  docker.n8n.io/n8nio/n8n
+docker rm b90c344803c8
+docker stop b90c344803c8
+docker pull docker.n8n.io/n8nio/n8n
+sudo systemctl status docker
+sudo systemctl start docker
+sudo systemctl stop docker.socket
+sudo systemctl stop docker
+sudo systemctl restart docker
+sudo containerd
+containerd
+sudo docker-compose restart n8n
+sudo docker restart n8n
+sudo docker restart all
+sudo docker restart
+docker images
+docker-compose images
+docker-compose
+docker-compose ps
+docker ps
+docker
+docker stop
+docker-compose down
+sudo snap install docker
+sudo rm -r .stellarium/
+la
+find
+locate
+find docker
+find docker-compose.yml
+find docker-compose
+whereis docker-compose.yml
+/etc/systemd/system/
+n8n
+sudo systemctl sleep
+systemctl sleep
+sleep 5
+sleep
+sudo chmod +x /usr/lib/systemd/system-sleep/fprintd-resume
+sudo nano /usr/lib/systemd/system-sleep/fprintd-resume
+sudo systemctl enable open-fprintd-suspend.service
+sudo systemctl enable open-fprintd-resume.service
+ls /lib/systemd/system/ | grep -i fprint
+systemctl status open-fprintd-resume.service
+systemctl status open-fprintd-suspend.service
+sudo systemctl status open-fprintd-resume.service
+fprintd-verify
+sudo systemctl status python3-validity
+sudo systemctl restart python3-validity
+sudo systemctl status python3-validity
+sudo apt install xpad
+sudo systemctl enable open-fprintd-resume open-fprintd-suspend
+sudo systemctl enable --now open-fprintd-suspend.service
+sudo systemctl enable --now open-fprintd-resume.service
+
+sudo systemctl start open-fprintd-resume.service
+sudo systemctl restart open-fprintd-resume.service
+sudo systemctl stop open-fprintd-resume.service
+sudo systemctl status open-fprintd-resume-service
+sudo systemctl status open-fprintd
+npm
+npx
+node
+sudo apt install npm
+nvm
+fprintd-enroll
+fprintd-list $(whoami)
+fprintd-delete $(whoami)
+fprintd-list darc
+fprintd-list
+fprintd-list {whoami}
+sudo apt install usbutils
+sudo usbreset 138a:0097
+sudo pip3 uninstall validitysensor -y
+sudo systemctl daemon-reload
+sudo systemctl restart python3-validity
+sudo systemctl status python3-validity
+sudo systemctl revert python3-validity
+cat /etc/systemd/system/python3-validity.service
+sudo systemctl restart python3-validity
+sudo touch /var/run/python-validity/.initialized
+sudo systemctl restart python3-validity
+sudo systemctl status python3-validity
+sudo /usr/lib/python-validity/dbus-service
+/usr/lib/python-validity/dbus-service
+/usr/lib/python-validity/dbus-service -h
+/usr/lib/python-validity/dbus-service --help
+ls /etc/python-validity/ 2>/dev/null
+cat /etc/default/python3-validity 2>/dev/null
+sudo systemctl edit python3-validity --full
+sudo systemctl unmask python3-validity
+lsusb | grep 138a
+lsusb
+sudo systemctl stop python3-validity
+sudo systemctl disable python3-validity
+sudo systemctl mask python3-validity
+sudo systemctl start python3-validity
+# Create the directory if it doesn't exist
+sudo mkdir -p /var/run/python-validity
+
+# Download and extract the firmware again
+cd /tmp
+sudo validity-sensors-firmware
+python3-validity
+gnome-session-b
+gnome-session-inhibit --reason -l
+gnome-session-inhibit -l --reason
+gnome-session-inhibit -l
+gnome-session-inhibit
+gnome-session
+systemd-inhibit
+sudo apt update && sudo apt upgrade
+systemd-ac-power
+sudo apt upgrade
+sudo shutdown now
+sudo shotdown now
+sudo apt install open-fprintd fprintd-clients python3-validity
+fprintd-delete $(whoami)
+fprintd-enroll -f right-index-finger
+fprintd-enroll -f right-thumb  # use same finger again
+fprintd-enroll -f right-middle-finger  # and again
+sudo apt install fprintd
+sudo apt install fprintd python3-validity
+sudo apt purge validity-sensors-firmware
+sudo validity-sensors-firmware
+validity-sensors-firmware
+sudo snap remove validity-sensors-tools
+sudo snap remove validity-sensors
+sudo snap remove validity-sensors*
+sudo snap remove valisity-sensors-tools
+sudo snap remove valisity-sensors*
+# Find the USB bus/port for your sensor
+sudo lsusb -t | grep -A2 "138a:0097"
+# Find the USB bus/port for your sensor
+lsusb -t | grep -A2 "138a:0097"
+fwupdmgr refresh
+fwupdmgr get-updates
+uname -r
+lsusb -v -d 138a:0097 | grep -i "bcdDevice\|iProduct"
+sudo snap run validity-sensors-tools.factory-reset
+cd /home/darc/
+sudo snap refresh validity-sensors-tools --channel=edge
+sudo snap run validity-sensors-tools.erase-db
+sudo mkdir -p /var/run/python-validity
+sudo apt install innoextract -y
+
+cd /tmp
+sudo pip3 install --break-system-packages .
+sudo apt install python3-setuptools -y
+sudo pip3 install --break-system-packages
+cd python-validity/
+git clone https://github.com/uunicorn/python-validity.git
+sudo apt install python3-pip python3-usb git -y
+sudo snap run validity-sensors-tools.initializer
+sudo reboot
+echo "1-9" | sudo tee /sys/bus/usb/drivers/usb/unbind
+sleep 2
+echo "1-9" | sudo tee /sys/bus/usb/drivers/usb/bind
+
+sudo lsusb -t
+lsusb -t
+echo "1-7" | sudo tee /sys/bus/usb/drivers/usb/unbind
+sleep 2
+echo "1-7" | sudo tee /sys/bus/usb/drivers/usb/bind
+
+sudo chmod 755 /home/darc/
+# Stop all fingerprint services
+sudo systemctl stop open-fprintd
+sudo systemctl stop python3-validity
+sudo systemctl disable open-fprintd
+sudo systemctl disable python3-validity
+
+# Remove all the conflicting packages
+sudo apt purge open-fprintd python3-validity fprintd-clients libfprint-2-2 libfprint-2-tod1 -y
+sudo apt autoremove -y
+
+# Remove any leftover data
+sudo rm -rf /var/lib/fprint
+sudo rm -rf /usr/lib/python-validity
+
+# Clean up PPA
+sudo add-apt-repository --remove ppa:uunicorn/open-fprintd -y
+sudo disable open-fprintd
+sudo systemctl disable python3-validity
+sudo systemctl disable open-fprintd
+sudo systemctl stop python3-validity
+sudo systemctl stop open-fprintd
+sudo snap run validity-sensors-tools.initializer  # initialize the sensor
+sudo snap run validity-sensors-tools.enroll  # enroll a fingerprint
+snap run validity-sensors-tools.initializer  # initialize the sensor
+snap run validity-sensors-tools.enroll  # enroll a fingerprint
+sudo snap refresh validity-sensors-tools  # make sure it's up to date
+snap run validity-sensors-tools.initializer  # initialize the sensor
+snap run validity-sensors-tools.enroll  # enroll a fingerprint
+snap list | grep validity
+snap info validity-sensors-tools
+sudo cat /var/crash/_usr_bin_validity-sensors-firmware.0.crash | head -100
+grep -r "var/lib" /usr/lib/python3/dist-packages/openfprintd/ 2>/dev/null
+find /usr/lib/python3/dist-packages/openfprintd/ -name "*.py" -exec grep -l "store\|save\|database\|db_path" {} \;
+sudo ls -la /var/lib/fprint/
+sudo ls -la /var/lib/open-fprint/
+sudo mkdir -p /var/lib/fprint
+sudo chown root:root /var/lib/fprint
+sudo chmod 755 /var/lib/fprint
+cat /usr/lib/open-fprintd/open-fprintd | head -50
+sudo grep -r "fprint" /etc/ 2>/dev/null | grep -i path
+sudo find /var -name "*fprint*" -o -name "*validity*" 2>/dev/null
+ls -la /var/lib/fprint/
+sudo python3 -m validitysensor.sensor
+sudo journalctl -u python3-validity -n 100 --no-pager
+sudo /usr/lib/open-fprintd/open-fprintd --debug
+sudo /usr/lib/open-fprintd/open-fprintd -d
+dpkg -L python3-validity | grep -E '(bin|lib)'
+sudo journalctl -u open-fprintd -n 200 --no-pager
+sudo python3 -m validity.sensor
+sudo journalctl -u open-fprintd -n 100 | grep -i verify
+sudo journalctl -u open-fprintd -n 100 | grep -i enroll
+open-fprintd
+sudo systemctl restart open-fprintd
+systemctl list-units | grep -i fprint
+ps aux | grep fprint
+sudo systemctl status fprintd
+sudo systemctl restart fprintd
+sudo apt install python3-validity fprintd-clients
+sudo apt purge open-fprintd
+sudo apt remove python3-validity
+sudo apt purge python3-validity -r
+sudo apt purge python3-validity --force
+sudo apt purge python3-validity
+sudo apt purge fprintd
+sudo apt purge fprintd*
+sudo journalctl -u fprintd -n 50
+sudo lsusb -v -d 138a:0097 | grep -i driver
+lsusb -v -d 138a:0097 | grep -i driver
+fwupdmgr get-devices | grep -i finger
+fwupdmgr get-devices
+lsusb | grep -i validity
+fprintd-delete "$USER"
+sudo python3 /usr/share/python-validity/playground/factory-reset.py
+sudo apt search fingerprint
+sudo apt search finger
+fingerprint
+finger
+sudo apt install open-fprintd fprintd-clients-pam python3-validity
+sudo apt remove fprintd
+sudo validity-sensors-firmware --driver-uri https://download.lenovo.com/pccbbs/mobiles/n1mgf03w.exe
+sudo python3 /usr/share/python-validity/playground/factory-reset.pysudo systemctl stop python3-validity
+sudo validity-sensors-tools.initializer
+sudo validity-sensors-tools.enroll
+validity-sensors-tools.enroll
+validity-sensors-tools
+sudo validity-sensors-tools.calibrate
+echo -n "1-8" | sudo tee /sys/bus/usb/drivers/usb/unbind
+sudo systemctl stop python3-validity
+
+sudo systemctl status open-fprintd
+
+sudo lsof /dev/bus/usb/ | grep fingerprint
+
+sudo python3 /usr/share/python-validity/playground/factory-reset.py
+
+sudo systemctl status open-fprintd python3-validity
+
+sudo systemctl stop open-fprintd python3-validity
+
+sudo systemctl status python3-validity
+
+fprintd-delete "$USER"
+
+fwupdmgr get-updates
+fwupdmgr update
+fwupdmgr refresh
+fwupdmgr get-update
+sudo systemctl start open-fprintd python3-validity
+
+sudo systemctl stop open-fprintd python3-validity
+sudo systemctl start open-fprintd python3-validity
+
+sudo fwupdmgr update
+sudo fwupdmgr refresh --force
+sudo fwupdmgr refresh
+sudo pam-auth-update
+sudo systemctl status pyhon3-validity
+open
+open google.com
+fprintd.service
+sudo systemctl fprintd.service
+sudp systemctl fprintd.service
+sudo fprintd-verify
+sudo fprintd-list *
+sudo fprintd-list
+sudo fprintd-delete *
+fprintd-delete *
+fprintd-delete darc
+fprintd-delete
+sudo validity-sensors-tools.pair
+validity-sensors-tools.calibrate
+sudo apt install open-fprintd fprintd-clients python3-validity
+
+sudo pluma /etc/apt/sources.list.d/
+pluma /etc/apt/sources.list.d/
+pluma/etc/apt/sources.list.d/
+sudo /etc/apt/sources.list.d/
+sudo nano /etc/apt/sources.list.d/uunicorn-ubuntu-open-fprintd-plucky.list
+
+sudo add-apt-repository ppa:uunicorn/open-fprintd
+sudo apt-get update
+sudo apt install open-fprintd fprintd-clients python3-validity
+
+sudo snap connect validity-sensors-tools:hardware-observe
+sudo snap connect validity-sensors-tools:raw-usb
+sudo snap install validity-sensors-tools
+validity-sensors
+sudo apt search validity-sensors
+sudo apt search validity
+sudo apt update
+sudo apt install fprintd libpam-fprintd
+apt search fprintd
+fprintd
+libfprintd
+libfprint
+sudo pluma configs17_BattlePass_Rewards.json_cb58fd5e0d67b832e5ca335d333a7140
+sudo su
+su
+sudo -i
+adb devices
+fastboot oem unlock_critical
+fastboot oem unlock
+fastboot flashing unlock_critical
+fastboot flashing unlock
+fastboot getvar *
+fastboot getvar
+fastboot flashall
+fastboot devices
+fastboot reboot fastboot
+fastboot flasjall
+fastboot flashing get_unlock_ability
+adb reboot recovery
+fastboot help
+fastboot
+adb shell
+sudo apt install scrcpy
+sudo apt install android-sdk-platform-tools
+sudo apt install android-sdk
+sudo apt search android
+sudo apt search adb
+sudo snap install todoist
+sudo systemctl hibernate -1
+systemctl hibernate
+systemctl
+syscount.bt
+sudo snap install whatsapp-linux-app
+sudo snap search whatsapp
+sudo snap install whatsapp
+localsend
+sudo SKIP_PACKAGE_CHECK=1 ./DaVinci_Resolve_20.2.1_Linux.run -i
+sudo apt modernize-sources
+sudo apt install libuuid1
+sudo apt install libc6
+sudo ./DaVinci_Resolve_20.2.1_Linux.run -i
+sudo DaVinci_Resolve_20.2.1_Linux.run -i
+DaVinci_Resolve_20.2.1_Linux/
+Compressed/
+sudo '/home/darc/Desktop/com.blackmagicdesign.resolve.desktop'
+shfmt
+sudo apt install shfmt
+pluma install.log
+pluma apt-update-error.log
+go install mvdan.cc/sh/v3/cmd/shfmt@latest
+go
+sudo apt install golang-go
+sudo apt install libapr1 libaprutil1 libasound2t64 libglib2.0-0 libxcb-cursor0
+sudo apt install libapr1 libaprutil1 libasound2t64 libglib2.0-0
+sudo apt install libapr1 libaprutil1 libasound2 libglib2.0-0
+sudo apt install libfuse2t64
+sudo add-apt-repository universe
+sudo apt install fuse
+sudo apt ibstall fuse
+sudo apt search fuse
+./DaVinci_Resolve_20.2.1_Linux.run
+chmod +x DaVinci_Resolve_20.2.1_Linux.run
+sudo snap remove orange-app
+sudo snap purge orange-app
+sudo snao purge orange-app
+sudo QT_QPA_PLATFORM=wayland orange-app
+QT_QPA_PLATFORM=wayland orange-app
+orange-app
+sudo apt search davinci
+neofetch
+neo
+git config --global user.name "Darcside9"
+git config --global user.email "darcside999@gmail.com"
+sudo apt install git
+git
+curl -fsSL https://ollama.ai/install.sh | sh
+sh
+curl -fsSL https://ollama.ai/install.sh
+sudo dpkg -l | grep systemd
+la /swap.img
+cat /etc/fstab
+free
+swapon --show
+'/home/darc/Desktop/Dragged Text-FriSep26202518-44-39GMT+0100(WestAfricaStandardTime).png'
+sudo snap install codium --classic
+sudo snap install codium
+sudo snap search codium
+sudo apt search codium
+sudo apt install codium
+sudo apt install libcanberra-gtk-module
+sudo orange-app
+sudo snap install orange-app
+sudo snap instsll orange-app
+sudo systemd-inhibit --list
+sudo systemd-inhibit -h
+sudo systemd-inhibit
+sudo systemctl systemd-inhibit
+timer
+time
+hibernate
+sudo apt purge simplescreenrecorder
+sudo apt update
+sudo apt install simplescreenrecorder
+code
+vstp
+sudo snap install code --classic
+sudo snap install code
+pycharm
+codium
+sudo apt install python-is-python3
+sudo apt install python
+python
+python3 -version
+python3 -v
+sudo apt install vscode
+gtop
+sudo apt install gir1.2-gtop-2.0
+sudo apt search gtop
+sudo apt install gtop
+sudo apt install obs-studio
+sudo apt install vlc
+sudo apt install vls
+pano@elhan.io/
+tar z pano@elhan.io.zip
+tar pano@elhan.io.zip
+tar zxf pano@elhan.io.zip
+unzip pano@elhan.io.zip
+sudo apt search pano
+sudo apt install pano
+sudo apt search n8n
+copyq
+sudo apt purge copyq
+sudo apt install copyq
+sudo add-apt-repository ppa:hluk/copyq
+sudo snap install localsend
+sudo apt install gnome-shell-extension-manager
+sudo apt search gnome-shell-extension-manager
+sudo apt search gnome-shel-extension-manager
+sudo apt install gnome-shel-extension-manager
+sudo docker compose up -d
+nano docker-compose.yml
+newgrp docker
+sudo usermod -aG docker $USER
+sudo apt install docker-ce docker-ce-cli containerd.io docker-buildx-plugin docker-compose-plugin -y
+echo "deb [arch=$(dpkg --print-architecture) signed-by=/etc/apt/keyrings/docker.gpg] https://download.docker.com/linux/ubuntu $(lsb_release -cs) stable" | sudo tee /etc/apt/sources.list.d/docker.list > /dev/null
+sudo chmod a+r /etc/apt/keyrings/docker.gpg
+curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo gpg --dearmor -o /etc/apt/keyrings/docker.gpg
+sudo install -m 0755 -d /etc/apt/keyrings
+sudo apt install ca-certificates curl gnupg lsb-release -y
+sudo apt install kdeconnect
+sudo apt search kde
+sudo apt search extension
+sudo apt install gnome
+sudo apt install gdebi
+sudo apt search gnome
+sudo apt search gnome-extension-manager
+sudo apt search gnome-extension
+sudo apt install gnome-extension
+sudo apt install neofetch
+sudo apt install neofecth
+sudo apt install chrome-gnome-shell
+sudo gnome-text-editor /etc/default/grub
+sudo filefrag -v swap.img | awk 'NR==4{print $4}'
+sudo findmnt -no UUID -T /
+free -h
+echo '/swap.img none swap sw 0 0' | sudo tee -a /etc/fstab
+sudo swapon swap.img
+sudo mkswap swap.img
+sudo chmod 600 swap.img
+sudo mv swapfile swap.img
+cd /
+sudo dd ifsudo dd if=/dev/zero of=/swapfile bs=1G count=24
+sudo rm -r swap.img
+sudo swapoff -a
+la swap.img
+sudo mv -r swapfile swap.img
+la swapfile
+ls swap.img
+cd .
+sudo dd ifsudo dd if=/dev/zero of=/swapfile bs=1G count=18
+sudo apt install pluma
+blkid
+sudo dpkg -i google-chrome-stable_current_amd64.deb
+sudo dpkg i google-chrome-stable_current_amd64.deb
+./google-chrome-stable_current_amd64.deb
