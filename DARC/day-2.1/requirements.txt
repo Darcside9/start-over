@@ -1,0 +1,4 @@
+# Minimal dependencies for the installer
+# No external dependencies required for core detection.
+# Optionally you can install 'distro' for richer OS detection.
+# distro==1.8.0
