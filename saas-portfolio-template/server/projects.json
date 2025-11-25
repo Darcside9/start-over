@@ -1,0 +1,20 @@
+[
+  {
+    "id": 1,
+    "title": "AI-enhanced CRM",
+    "description": "Automated lead enrichment and prioritized follow-ups using LLM summarization and intent extraction.",
+    "link": "#"
+  },
+  {
+    "id": 2,
+    "title": "AutoDocs",
+    "description": "Generates and maintains technical docs by extracting examples and code snippets.",
+    "link": "#"
+  },
+  {
+    "id": 3,
+    "title": "Workflow Automation",
+    "description": "End-to-end order processing pipeline with ML-based anomaly detection.",
+    "link": "#"
+  }
+]

@@ -1,0 +1,126 @@
+/* Basic port of the template styles for the React app */
+:root {
+  --bg: #0b0f1a;
+  --card: #0f1724;
+  --muted: #9aa6b2;
+  --accent: #0b6c9a;
+  --accent-2: #071a52;
+  --glass: rgba(255, 255, 255, 0.04);
+  --radius: 12px;
+}
+* {
+  box-sizing: border-box;
+}
+body {
+  margin: 0;
+  font-family: Inter, system-ui, Segoe UI, Roboto, Arial;
+  background: linear-gradient(180deg, var(--bg), #031026);
+  color: #e6eef6;
+}
+.container {
+  width: 100%;
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 0 1.25rem;
+}
+.header-inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 1rem 0;
+}
+.brand a,
+.brand {
+  color: var(--text);
+  text-decoration: none;
+  font-weight: 600;
+}
+.site-nav ul {
+  list-style: none;
+  display: flex;
+  gap: 1rem;
+  margin: 0;
+  padding: 0;
+}
+.site-nav a {
+  color: var(--muted);
+  text-decoration: none;
+  padding: 0.5rem 0.6rem;
+  border-radius: 8px;
+}
+.hero {
+  padding: 3rem 0;
+}
+.lead {
+  color: var(--muted);
+}
+.btn {
+  display: inline-block;
+  padding: 0.6rem 1rem;
+  border-radius: 8px;
+  text-decoration: none;
+  font-weight: 600;
+}
+.btn-primary {
+  background: linear-gradient(90deg, var(--accent), var(--accent-2));
+  color: #fff;
+  border: 0;
+}
+.btn-ghost {
+  background: transparent;
+  border: 1px solid rgba(255, 255, 255, 0.06);
+  color: #e6eef6;
+}
+.section {
+  padding: 2rem 0;
+}
+.cards-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 1rem;
+  margin-top: 1rem;
+}
+.card {
+  background: var(--card);
+  padding: 1rem;
+  border-radius: 12px;
+  border: 1px solid rgba(255, 255, 255, 0.03);
+}
+.projects-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 1rem;
+  margin-top: 1rem;
+}
+.project-card {
+  background: linear-gradient(180deg, rgba(255, 255, 255, 0.02), transparent);
+  padding: 1rem;
+  border-radius: 12px;
+  border: 1px solid rgba(255, 255, 255, 0.03);
+}
+.contact-form {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+.contact-form input,
+.contact-form textarea {
+  padding: 0.6rem;
+  border-radius: 8px;
+  border: 1px solid rgba(255, 255, 255, 0.06);
+  background: transparent;
+  color: #e6eef6;
+}
+.form-actions {
+  display: flex;
+  gap: 0.5rem;
+  margin-top: 0.5rem;
+}
+.site-footer {
+  padding: 1.25rem 0;
+  border-top: 1px solid rgba(255, 255, 255, 0.02);
+  margin-top: 2rem;
+}
+.muted {
+  color: var(--muted);
+}

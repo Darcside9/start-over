@@ -1,0 +1,277 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>SaaS Portfolio — Web & AI Automation</title>
+    <meta
+      name="description"
+      content="SaaS portfolio for web development and AI automation. Shows services, projects, case studies and contact info."
+    />
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <a class="skip-link" href="#main">Skip to content</a>
+
+    <header class="site-header">
+      <div class="container header-inner">
+        <div class="brand">
+          <a href="#" aria-label="Home"
+            ><span class="brand-mark">DA</span> Darc</a
+          >
+        </div>
+
+        <button
+          id="nav-toggle"
+          aria-expanded="false"
+          aria-controls="site-nav"
+          class="nav-toggle"
+        >
+          ☰
+        </button>
+
+        <nav id="site-nav" class="site-nav" aria-label="Primary">
+          <ul>
+            <li><a href="#about">About</a></li>
+            <li><a href="#services">Services</a></li>
+            <li><a href="#projects">Projects</a></li>
+            <li><a href="#pricing">Pricing</a></li>
+            <li><a href="#contact">Contact</a></li>
+          </ul>
+        </nav>
+      </div>
+    </header>
+
+    <main id="main">
+      <section id="hero" class="hero">
+        <div class="container hero-grid">
+          <div class="hero-copy">
+            <h1>Build smarter web apps with AI automation</h1>
+            <p class="lead">
+              I design and develop SaaS products and automation pipelines that
+              help teams ship faster and reduce manual work using AI, Python,
+              Node and modern cloud tooling.
+            </p>
+            <p class="hero-cta">
+              <a class="btn btn-primary" href="#projects">See my work</a>
+              <a class="btn btn-ghost" href="#contact">Hire me</a>
+            </p>
+            <ul class="skill-list" aria-hidden="true">
+              <li>Web apps • React / Next.js</li>
+              <li>AI pipelines • LangChain, LLMs</li>
+              <li>Automation • Zapier / Airflow / Cloud Functions</li>
+            </ul>
+          </div>
+
+          <div class="hero-visual" aria-hidden="true">
+            <!-- Inline SVG placeholder showing workflow -->
+            <svg
+              width="420"
+              height="260"
+              viewBox="0 0 420 260"
+              fill="none"
+              xmlns="http://www.w3.org/2000/svg"
+              class="mock-graphic"
+            >
+              <rect
+                x="0"
+                y="0"
+                width="420"
+                height="260"
+                rx="12"
+                fill="url(#g)"
+              />
+              <defs>
+                <linearGradient id="g" x1="0" y1="0" x2="1" y2="1">
+                  <stop offset="0" stop-color="#071A52" />
+                  <stop offset="1" stop-color="#0B6C9A" />
+                </linearGradient>
+              </defs>
+              <g fill="#fff" opacity="0.9">
+                <circle cx="80" cy="70" r="18" />
+                <circle cx="200" cy="70" r="18" />
+                <circle cx="320" cy="70" r="18" />
+                <rect x="60" y="120" rx="8" width="300" height="80" />
+              </g>
+            </svg>
+          </div>
+        </div>
+      </section>
+
+      <section id="services" class="section">
+        <div class="container">
+          <h2>Services</h2>
+          <p class="muted">
+            Web products, integrations and AI-driven automation that scale.
+          </p>
+          <div class="cards-grid">
+            <article class="card">
+              <h3>Product Engineering</h3>
+              <p>
+                Full-stack SaaS development (Next.js, React, Node, Postgres).
+                Fast prototypes to production-ready apps.
+              </p>
+            </article>
+            <article class="card">
+              <h3>AI Automation</h3>
+              <p>
+                Design and implement LLM pipelines, agents and automated
+                workflows for customer support, content and data ops.
+              </p>
+            </article>
+            <article class="card">
+              <h3>Integrations & DevOps</h3>
+              <p>
+                Connect services, build CI/CD and serverless automation to
+                reduce toil and deploy reliably.
+              </p>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section id="projects" class="section section-alt">
+        <div class="container">
+          <h2>Selected Projects</h2>
+          <p class="muted">Case studies combining UX, engineering and AI.</p>
+          <div class="projects-grid">
+            <div class="project-card" data-project="1">
+              <div
+                class="thumb"
+                style="background: linear-gradient(135deg, #0b6c9a, #071a52)"
+              >
+                AI CRM
+              </div>
+              <h3>AI-enhanced CRM</h3>
+              <p>
+                Automated lead enrichment and prioritized follow-ups using LLM
+                summarization and intent extraction.
+              </p>
+              <p><a class="link" href="#" data-open="1">Read case study</a></p>
+            </div>
+
+            <div class="project-card" data-project="2">
+              <div
+                class="thumb"
+                style="background: linear-gradient(135deg, #6c0b9a, #521a07)"
+              >
+                AutoDocs
+              </div>
+              <h3>AutoDocs — docs from code</h3>
+              <p>
+                Generates and maintains technical docs by extracting examples
+                and code snippets, saving engineering time.
+              </p>
+              <p><a class="link" href="#" data-open="2">Read case study</a></p>
+            </div>
+
+            <div class="project-card" data-project="3">
+              <div
+                class="thumb"
+                style="background: linear-gradient(135deg, #129a0b, #074f1a)"
+              >
+                Workflow
+              </div>
+              <h3>Workflow Automation</h3>
+              <p>
+                End-to-end automation for order processing, notifications and
+                ML-based anomaly detection.
+              </p>
+              <p><a class="link" href="#" data-open="3">Read case study</a></p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section id="pricing" class="section">
+        <div class="container">
+          <h2>Pricing</h2>
+          <p class="muted">
+            Simple, transparent pricing for teams and startups.
+          </p>
+          <div class="pricing-grid">
+            <div class="price-card">
+              <h3>Starter</h3>
+              <div class="price">$1,500</div>
+              <p>Prototype, integration setup. 2 weeks delivery.</p>
+            </div>
+            <div class="price-card featured">
+              <h3>Growth</h3>
+              <div class="price">$6,500</div>
+              <p>Full MVP with automation pipelines. 6-8 weeks.</p>
+            </div>
+            <div class="price-card">
+              <h3>Enterprise</h3>
+              <div class="price">Custom</div>
+              <p>Scaled systems, SLOs and ongoing support.</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section id="contact" class="section section-alt">
+        <div class="container contact-grid">
+          <div>
+            <h2>Get in touch</h2>
+            <p class="muted">
+              Tell me about your project — I'll reply within 48 hours.
+            </p>
+            <ul class="contact-meta">
+              <li>
+                <strong>Email:</strong>
+                <a href="mailto:hello@example.com">hello@example.com</a>
+              </li>
+              <li><strong>Location:</strong> Remote — Europe</li>
+            </ul>
+          </div>
+
+          <form
+            id="contact-form"
+            class="contact-form"
+            action="mailto:hello@example.com"
+            method="post"
+            enctype="text/plain"
+          >
+            <label for="name">Name</label>
+            <input id="name" name="name" required />
+
+            <label for="email">Email</label>
+            <input id="email" name="email" type="email" required />
+
+            <label for="message">Message</label>
+            <textarea id="message" name="message" rows="5" required></textarea>
+
+            <div class="form-actions">
+              <button type="submit" class="btn btn-primary">
+                Send message
+              </button>
+              <button type="reset" class="btn btn-ghost">Reset</button>
+            </div>
+          </form>
+        </div>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <div class="container footer-inner">
+        <div>&copy; 2025 Darc — Web & AI Automation</div>
+        <div class="social">
+          <a href="#" aria-label="GitHub">GitHub</a>
+          <a href="#" aria-label="LinkedIn">LinkedIn</a>
+        </div>
+      </div>
+    </footer>
+
+    <!-- Modal placeholder for project case studies -->
+    <div id="modal" class="modal" role="dialog" aria-hidden="true">
+      <div class="modal-content" role="document">
+        <button id="modal-close" class="modal-close" aria-label="Close">
+          ×
+        </button>
+        <div id="modal-body"></div>
+      </div>
+    </div>
+
+    <script src="script.js"></script>
+  </body>
+</html>
