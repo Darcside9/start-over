@@ -42,18 +42,21 @@ bootstrap.sh (Bash wrapper)
 **Purpose:** Minimal, auditable Bash entry point for system-level integration.
 
 **Responsibilities:**
+
 - Check root privileges (exit with error if not root)
 - Verify Python 3 is installed (exit if not)
 - Set `AI_HOME` environment variable (default: `/opt/darc-ai`)
 - Delegate to Python CLI: `python3 -m darc_installer.cli "$@"`
 
 **Key Features:**
+
 - ~30 lines of clear, simple Bash code
 - Error traps with informative messages
 - No complex logic; all heavy lifting in Python
 - Suitable for `/usr/local/bin/darc-install` symlink or direct execution
 
 **Example Usage:**
+
 ```bash
 sudo /path/to/bootstrap.sh --dry-run --verbose
 ```
@@ -65,6 +68,7 @@ sudo /path/to/bootstrap.sh --dry-run --verbose
 **Purpose:** Argument parsing, configuration, and logging setup.
 
 **Responsibilities:**
+
 - Parse command-line arguments using argparse:
   - `--dry-run`: Execute without making changes; print intended commands
   - `--yes`: Auto-accept all prompts (non-interactive mode)
@@ -75,12 +79,14 @@ sudo /path/to/bootstrap.sh --dry-run --verbose
 - Call `run_install()` or `get_sys_info()` based on flags
 
 **Key Features:**
+
 - Clean argument parsing with sensible defaults
 - Log level set based on verbosity flags
 - File logging setup (logs to `AI_HOME/logs/installer.log`)
 - Dry-run flag passed throughout the stack
 
 **Example Usage:**
+
 ```bash
 python3 -m darc_installer.cli --dry-run --verbose
 python3 -m darc_installer.cli --yes                    # Non-interactive auto-install
@@ -96,29 +102,35 @@ python3 -m darc_installer.cli --diagnose              # System info only
 **Key Functions:**
 
 #### `run_cmd(cmd, dry_run=False, check=True, capture=False, check=True)`
+
 - Safe subprocess wrapper respecting `dry_run` flag
 - Prints intended command in dry-run mode without executing
 - Returns `CompletedProcess` or None
 - Handles errors with logging
 
 #### `detect_package_manager()`
+
 - Detects Linux distribution and returns package manager name
 - Supports: apt (Debian/Ubuntu), dnf (Fedora/RHEL), pacman (Arch), zypper (openSUSE)
 - Used to abstract package installation logic
 
 #### `install_packages(packages, dry_run=False)`
+
 - Installs system packages using detected package manager
 - Idempotent: checks if package is already installed before attempting install
 - Supports multiple distros transparently
 
 #### `systemctl_enable_start(service_name, dry_run=False)`
+
 - Enables and starts systemd service
 - Idempotent: checks if service is already running
 
 #### `is_package_installed_apt(package_name)`
+
 - Checks if package is installed (APT version shown; similar for other PMs)
 
 **Key Features:**
+
 - Single point of abstraction for all system calls
 - Dry-run support throughout
 - Logging for all operations
@@ -133,6 +145,7 @@ python3 -m darc_installer.cli --diagnose              # System info only
 **Key Data Structures:**
 
 #### `MODELS` Dictionary
+
 ```python
 MODELS = {
     "llama2:7b": {"size": 3.8, "description": "Llama 2 7B..."},
@@ -142,6 +155,7 @@ MODELS = {
 ```
 
 #### `COMPONENTS` Dictionary
+
 ```python
 COMPONENTS = {
     "core": {"description": "Core AI System..."},
@@ -153,35 +167,43 @@ COMPONENTS = {
 **Key Functions:**
 
 #### `print_banner()`
+
 - Displays styled D∆RC AI Framework header banner
 
 #### `print_section(title)`
+
 - Prints section headers with visual separators
 
 #### `print_success(msg)`, `print_error(msg)`, `print_warning(msg)`, `print_info(msg)`
+
 - Colored console output (green, red, yellow, blue) using ANSI codes
 - All output logged to file
 
 #### `select_models(assume_yes=False)`
+
 - Interactive menu for model selection
 - Uses readline for navigation
 - Returns list of selected model names
 - In `--yes` mode, auto-selects recommended models
 
 #### `select_components(assume_yes=False)`
+
 - Interactive menu for component selection
 - Similar to `select_models()`
 - Returns list of selected component identifiers
 
 #### `show_installation_summary(models, components, ai_home, assume_yes=False)`
+
 - Displays summary: selected models, components, download size, installation directory
 - Waits for user confirmation (auto-confirms in `--yes` mode)
 
 #### `calculate_total_size(models)`
+
 - Sums the download sizes of selected models
 - Returns formatted string (e.g., "7.3GB")
 
 **Key Features:**
+
 - ANSI color support for better readability
 - Readline support for interactive menus
 - Accessible even on minimal systems
@@ -196,28 +218,34 @@ COMPONENTS = {
 **Key Functions:**
 
 #### `is_ollama_installed()`
+
 - Checks if Ollama is already installed
 - Returns True/False
 
 #### `install_ollama(dry_run=False)`
+
 - Downloads official Ollama installer script from `ollama.ai`
 - Executes install script
 - Enables and starts Ollama systemd service
 - Includes adaptive wait logic (up to 30 retries, 2 seconds between retries)
 
 #### `pull_model(model_name, dry_run=False)`
+
 - Pulls a single model from Ollama registry using HTTP API
 - Adaptive wait for Ollama service availability
 - Logs progress
 
 #### `pull_models(model_names, dry_run=False)`
+
 - Iterates over list of model names and pulls each one
 - Continues even if one model pull fails (logs warning)
 
 #### `get_installed_models()`
+
 - Fetches list of currently installed models via Ollama API
 
 **Key Features:**
+
 - Idempotency: checks if Ollama is already installed before installing
 - Adaptive wait logic: retries HTTP requests with exponential backoff
 - Full error handling and logging
@@ -232,42 +260,51 @@ COMPONENTS = {
 **Main Entry Point:**
 
 #### `run_install(dry_run=False, assume_yes=False)`
+
 - Main installation orchestrator called by CLI
 - Executes in the following sequence:
 
 **Sequence of Operations:**
 
 1. **Banner & Logging Setup**
+
    - Display welcome banner
    - Initialize logging to console + file
 
 2. **Preflight Checks** (`preflight_checks()`)
+
    - Verify disk space (15GB minimum)
    - Verify RAM (6GB minimum, warning if less)
    - Verify network connectivity (ping 8.8.8.8)
 
 3. **Interactive User Selections** (skipped in `--yes` mode)
+
    - Model selection menu (`select_models()`)
    - Component selection menu (`select_components()`)
 
 4. **Installation Summary**
+
    - Display selected models, components, total size, installation directory
    - Wait for user confirmation (or auto-confirm in `--yes` mode)
 
 5. **Environment Preparation**
+
    - Create directory structure (`create_directories()`)
    - Install system dependencies (`install_system_dependencies()`)
    - Setup Python virtual environment (`setup_python_venv()`)
 
 6. **Ollama Installation & Model Pulls**
+
    - Install Ollama (`install_ollama()`)
    - Pull selected models (`pull_models()`)
 
 7. **Core AI System Installation**
+
    - Write `ai_controller.py` (FastAPI server)
    - Write `darc-ai` CLI wrapper (Bash script)
 
 8. **Configuration & Finalization**
+
    - Create config.json and .env files
    - Create systemd service (if "system" component selected)
    - Run final tests (verify Ollama connectivity)
@@ -279,45 +316,57 @@ COMPONENTS = {
 **Helper Functions:**
 
 #### `setup_logging(ai_home: str)`
+
 - Configures Python logging with both console and file handlers
 - Returns path to log file
 
 #### `preflight_checks()`
+
 - Validates system requirements before proceeding
 
 #### `create_directories(ai_home: str)`
+
 - Creates AI_HOME directory structure: logs, models, scripts, config, data, temp
 
 #### `install_system_dependencies(dry_run: bool)`
+
 - Installs system packages: curl, wget, git, python3, python3-pip, redis-server, jq, etc.
 
 #### `setup_python_venv(ai_home: str, dry_run: bool)`
+
 - Creates Python virtual environment
 - Installs core packages: fastapi, uvicorn, requests, redis, pydantic, rich, etc.
 
 #### `write_ai_controller(scripts_dir: Path)`
+
 - Generates ai_controller.py: FastAPI server with /chat, /health, /models endpoints
 - Includes Ollama integration
 
 #### `write_darc_cli(scripts_dir: Path, ai_home: str)`
+
 - Generates darc-ai Bash wrapper CLI
 - Supports: chat, models, status, start, stop commands
 
 #### `write_core_scripts(ai_home: str)`
+
 - Calls `write_ai_controller()` and `write_darc_cli()`
 
 #### `create_config_files(ai_home: str, models: list, components: list)`
+
 - Writes config.json (version, models, components, URLs, paths)
 - Writes .env (environment variables)
 
 #### `create_systemd_service(ai_home: str, components: list, dry_run: bool)`
+
 - Creates /etc/systemd/system/darc-ai.service
 - Enables auto-start on boot (if "system" component selected)
 
 #### `run_final_tests(dry_run: bool)`
+
 - Tests Ollama connectivity: `ollama list`
 
 **Key Features:**
+
 - Complete installation orchestration in one function
 - Proper sequencing and dependency management
 - Dry-run support throughout (respects flag from CLI)
@@ -383,6 +432,7 @@ sudo /path/to/bootstrap.sh --diagnose
 ## Output & Logging
 
 ### Console Output
+
 - Colored status messages:
   - `[✓]` Green: Success
   - `[✗]` Red: Error
@@ -392,6 +442,7 @@ sudo /path/to/bootstrap.sh --diagnose
 - Completion summary with quick-start commands
 
 ### File Logging
+
 - Location: `{AI_HOME}/logs/installer.log`
 - Format: `[LEVEL] message`
 - Includes: timestamps, function names, variable values
@@ -424,11 +475,13 @@ After installation, `AI_HOME` contains:
 FastAPI server exposing REST API:
 
 **Endpoints:**
+
 - `GET /` — Returns framework info and status
 - `GET /health` — Health check with Ollama status and available models
 - `POST /chat` — Send message to AI model, get response
 
 **Example:**
+
 ```bash
 curl -X POST http://localhost:8000/chat \
   -H "Content-Type: application/json" \
@@ -440,6 +493,7 @@ curl -X POST http://localhost:8000/chat \
 Command-line interface for quick access:
 
 **Commands:**
+
 - `darc-ai chat "Your message"` — Send message to AI
 - `darc-ai models` — List installed models
 - `darc-ai status` — Check system status
@@ -447,6 +501,7 @@ Command-line interface for quick access:
 - `darc-ai stop` — Stop AI controller
 
 **Example:**
+
 ```bash
 darc-ai chat "What is the capital of France?"
 darc-ai status
@@ -489,6 +544,7 @@ All errors are logged to both console and file.
 ## Distro Support
 
 Tested and working on:
+
 - ✓ Ubuntu 20.04, 22.04, 24.04
 - ✓ Debian 11, 12
 - ✓ Fedora 38, 39

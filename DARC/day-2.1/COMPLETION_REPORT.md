@@ -21,23 +21,23 @@ The installer has been **tested end-to-end** and confirmed working with all majo
 
 ### Core Installer Components
 
-| File | Lines | Purpose |
-|------|-------|---------|
-| `bin/bootstrap.sh` | 32 | Root check, Python delegation |
-| `darc_installer/cli.py` | 60 | Argument parsing, logging config |
-| `darc_installer/system.py` | 119 | Linux distro detection, package management |
-| `darc_installer/ui.py` | 301 | Interactive menus, colored output |
-| `darc_installer/ollama.py` | 111 | Ollama install, model management |
-| `darc_installer/installer.py` | 620 | Main orchestration (620 lines) |
-| **Total Code** | **1,246** | **Production-grade Python + Bash** |
+| File                          | Lines     | Purpose                                    |
+| ----------------------------- | --------- | ------------------------------------------ |
+| `bin/bootstrap.sh`            | 32        | Root check, Python delegation              |
+| `darc_installer/cli.py`       | 60        | Argument parsing, logging config           |
+| `darc_installer/system.py`    | 119       | Linux distro detection, package management |
+| `darc_installer/ui.py`        | 301       | Interactive menus, colored output          |
+| `darc_installer/ollama.py`    | 111       | Ollama install, model management           |
+| `darc_installer/installer.py` | 620       | Main orchestration (620 lines)             |
+| **Total Code**                | **1,246** | **Production-grade Python + Bash**         |
 
 ### Documentation
 
-| File | Lines | Purpose |
-|------|-------|---------|
-| `README.md` | 250+ | Quick-start guide and feature overview |
-| `INSTALLER_DOCUMENTATION.md` | 625 | Complete technical reference |
-| **Total Documentation** | **875+** | **Professional-grade documentation** |
+| File                         | Lines    | Purpose                                |
+| ---------------------------- | -------- | -------------------------------------- |
+| `README.md`                  | 250+     | Quick-start guide and feature overview |
+| `INSTALLER_DOCUMENTATION.md` | 625      | Complete technical reference           |
+| **Total Documentation**      | **875+** | **Professional-grade documentation**   |
 
 ### Testing
 
@@ -93,34 +93,40 @@ bootstrap.sh (Bash)
 ## Key Features Implemented
 
 ### 1. **Multi-Distro Support**
+
 - ✅ Automatic distro detection (Ubuntu/Debian, Fedora/RHEL, Arch, openSUSE)
 - ✅ Package manager abstraction (apt, dnf, pacman, zypper)
 - ✅ Tested on all major distributions
 
 ### 2. **Idempotent Operations**
+
 - ✅ Safe to re-run without conflicts
 - ✅ Skips already-installed packages
 - ✅ Overwrites configs cleanly
 - ✅ All operations logged
 
 ### 3. **Installation Modes**
+
 - ✅ **Interactive**: User prompts, full control
 - ✅ **Non-Interactive** (`--yes`): Auto-accept all, suitable for CI/CD
 - ✅ **Dry-Run** (`--dry-run`): Print intended commands without executing
 - ✅ **Diagnostic** (`--diagnose`): Check system compatibility
 
 ### 4. **Comprehensive Logging**
+
 - ✅ Console: Color-coded real-time feedback
 - ✅ File: Full audit trail to `/opt/darc-ai/logs/installer.log`
 - ✅ Both: Sync'd, detailed messages
 
 ### 5. **Error Handling**
+
 - ✅ Preflight system checks (disk, RAM, network)
 - ✅ Clear error messages with recovery suggestions
 - ✅ Graceful interruption (Ctrl+C)
 - ✅ Exit codes for automation
 
 ### 6. **User Experience**
+
 - ✅ Colored output (green/red/yellow/blue)
 - ✅ Interactive model selection menu
 - ✅ Interactive component selection menu
@@ -129,6 +135,7 @@ bootstrap.sh (Bash)
 - ✅ Quick-start commands at completion
 
 ### 7. **Ollama Integration**
+
 - ✅ Automatic Ollama download and installation
 - ✅ Adaptive wait logic with retry (30 retries, 2s intervals)
 - ✅ Model pulling with progress tracking
@@ -136,6 +143,7 @@ bootstrap.sh (Bash)
 - ✅ Status checks and verification
 
 ### 8. **Service Creation**
+
 - ✅ Auto-start systemd service (`darc-ai.service`)
 - ✅ AI controller (FastAPI with /chat, /health, /models endpoints)
 - ✅ CLI wrapper (`darc-ai` command)
@@ -146,6 +154,7 @@ bootstrap.sh (Bash)
 ## Test Results
 
 ### End-to-End Dry-Run Test
+
 ```
 $ AI_HOME=/tmp/darc-test python3 -m darc_installer.cli --dry-run --yes
 
@@ -169,6 +178,7 @@ Exit code: 0 (success)
 ```
 
 ### File Generation Verification
+
 ```
 /tmp/darc-test/
 ├── config/
@@ -185,6 +195,7 @@ Exit code: 0 (success)
 ```
 
 ### Import Verification
+
 ```
 ✓ darc_installer package imports successfully
 ✓ All modules syntactically valid
@@ -214,6 +225,7 @@ Tests (available)      : 100+ lines
 ```
 
 ### Code Quality Metrics
+
 - **Modularity**: 6 well-defined modules with single responsibilities
 - **Reusability**: Shared utilities in `system.py`, `ui.py`, `ollama.py`
 - **Testability**: Each module can be tested independently
@@ -224,43 +236,47 @@ Tests (available)      : 100+ lines
 
 ## Comparison: Bash vs Hybrid
 
-| Aspect | Original Bash | Hybrid (Bash + Python) |
-|--------|---------------|------------------------|
-| **Total LOC** | ~1000 | 1,246 |
-| **Modularity** | Monolithic | 6 distinct modules |
-| **Testability** | Low (integration only) | High (unit + integration) |
-| **Maintainability** | Hard (imperative shell) | Easy (OOP, logging) |
-| **Error Handling** | Basic traps | Comprehensive try/except |
-| **Dry-Run Mode** | Hard-coded variables | Built-in flag throughout |
-| **Logging** | Limited (echo) | Console + file, structured |
-| **Distro Support** | Case statements | Abstraction layer |
-| **IDE Support** | None (shell) | Full Python IDE support |
-| **CI/CD Integration** | Manual parsing | Exit codes, JSON output ready |
-| **Future Extensions** | Difficult | Easy (add new modules) |
+| Aspect                | Original Bash           | Hybrid (Bash + Python)        |
+| --------------------- | ----------------------- | ----------------------------- |
+| **Total LOC**         | ~1000                   | 1,246                         |
+| **Modularity**        | Monolithic              | 6 distinct modules            |
+| **Testability**       | Low (integration only)  | High (unit + integration)     |
+| **Maintainability**   | Hard (imperative shell) | Easy (OOP, logging)           |
+| **Error Handling**    | Basic traps             | Comprehensive try/except      |
+| **Dry-Run Mode**      | Hard-coded variables    | Built-in flag throughout      |
+| **Logging**           | Limited (echo)          | Console + file, structured    |
+| **Distro Support**    | Case statements         | Abstraction layer             |
+| **IDE Support**       | None (shell)            | Full Python IDE support       |
+| **CI/CD Integration** | Manual parsing          | Exit codes, JSON output ready |
+| **Future Extensions** | Difficult               | Easy (add new modules)        |
 
 ---
 
 ## Installation Methods
 
 ### Method 1: Interactive (Default)
+
 ```bash
 sudo bin/bootstrap.sh
 # User is prompted for model and component selection
 ```
 
 ### Method 2: Non-Interactive (CI/CD)
+
 ```bash
 sudo bin/bootstrap.sh --yes
 # Auto-selects models and components, no prompts
 ```
 
 ### Method 3: Dry-Run (Testing)
+
 ```bash
 sudo bin/bootstrap.sh --dry-run --verbose
 # Prints intended commands without executing
 ```
 
 ### Method 4: Diagnostic (Troubleshooting)
+
 ```bash
 python3 -m darc_installer.cli --diagnose
 # Shows system info and exits
@@ -271,13 +287,17 @@ python3 -m darc_installer.cli --diagnose
 ## Generated Artifacts
 
 ### 1. AI Controller (`/opt/darc-ai/scripts/ai_controller.py`)
+
 A FastAPI server with endpoints:
+
 - `GET /` — Framework info
 - `GET /health` — Ollama status and available models
 - `POST /chat` — Send message to AI, get response
 
 ### 2. CLI Wrapper (`/opt/darc-ai/scripts/darc-ai`)
+
 A Bash wrapper for easy command-line access:
+
 ```bash
 darc-ai chat "Your message"
 darc-ai models
@@ -287,47 +307,53 @@ darc-ai stop
 ```
 
 ### 3. Configuration Files
+
 - `/opt/darc-ai/config/config.json` — Installation metadata
 - `/opt/darc-ai/config/.env` — Environment variables
 
 ### 4. Systemd Service
+
 - `/etc/systemd/system/darc-ai.service` — Auto-start on boot
 
 ### 5. Installation Log
+
 - `/opt/darc-ai/logs/installer.log` — Complete audit trail
 
 ---
 
 ## What Was Ported from Bash
 
-| Function | Bash Lines | Python Lines | Location |
-|----------|------------|--------------|----------|
-| System checks | 50 | 80 | system.py, installer.py |
-| Package manager detection | 100 | 30 | system.py |
-| Model/component selection | 150 | 100 | ui.py |
-| Ollama installation | 80 | 60 | ollama.py |
-| Config file creation | 40 | 40 | installer.py |
-| Script generation | 100 | 150 | installer.py |
-| Service creation | 50 | 40 | installer.py |
-| **Total Ported** | **~570** | **~500** | **Various modules** |
+| Function                  | Bash Lines | Python Lines | Location                |
+| ------------------------- | ---------- | ------------ | ----------------------- |
+| System checks             | 50         | 80           | system.py, installer.py |
+| Package manager detection | 100        | 30           | system.py               |
+| Model/component selection | 150        | 100          | ui.py                   |
+| Ollama installation       | 80         | 60           | ollama.py               |
+| Config file creation      | 40         | 40           | installer.py            |
+| Script generation         | 100        | 150          | installer.py            |
+| Service creation          | 50         | 40           | installer.py            |
+| **Total Ported**          | **~570**   | **~500**     | **Various modules**     |
 
 ---
 
 ## Next Steps (Optional Enhancements)
 
 ### High Priority
+
 - [ ] Add pytest tests for all modules (currently just structural)
 - [ ] Add linting (flake8, black, mypy) with CI
 - [ ] Package as pip-installable module
 - [ ] Create system packages (deb, rpm, etc.)
 
 ### Medium Priority
+
 - [ ] Add GPU detection and CUDA setup
 - [ ] Implement uninstall/rollback capability
 - [ ] Add health dashboard (web UI)
 - [ ] Multi-model parallel pulling
 
 ### Low Priority
+
 - [ ] Installer signature verification
 - [ ] Model auto-update mechanism
 - [ ] SELinux/AppArmor hardening contexts
@@ -358,20 +384,21 @@ darc_installer/__init__.py    # 644 (readable)
 
 ## Testing Coverage
 
-| Component | Test Type | Status |
-|-----------|-----------|--------|
-| Module imports | Structural | ✅ Verified |
-| End-to-end flow | Integration (dry-run) | ✅ Verified |
-| File generation | Output validation | ✅ Verified |
-| Error handling | Exception cases | ⚙ Ready for pytest |
-| Distro detection | Multi-distro | ⚙ Ready for pytest |
-| Package managers | Abstraction layer | ⚙ Ready for pytest |
+| Component        | Test Type             | Status             |
+| ---------------- | --------------------- | ------------------ |
+| Module imports   | Structural            | ✅ Verified        |
+| End-to-end flow  | Integration (dry-run) | ✅ Verified        |
+| File generation  | Output validation     | ✅ Verified        |
+| Error handling   | Exception cases       | ⚙ Ready for pytest |
+| Distro detection | Multi-distro          | ⚙ Ready for pytest |
+| Package managers | Abstraction layer     | ⚙ Ready for pytest |
 
 ---
 
 ## Documentation Generated
 
 1. **README.md** (250+ lines)
+
    - Quick-start guide
    - Feature overview
    - Command reference
@@ -393,29 +420,33 @@ darc_installer/__init__.py    # 644 (readable)
 ✅ **End-to-end tested** with dry-run and verified all components work together  
 ✅ **Comprehensive documentation** for users and developers  
 ✅ **Production-ready code** with error handling, logging, and idempotency  
-✅ **Future-proof design** that's easy to extend with new modules  
+✅ **Future-proof design** that's easy to extend with new modules
 
 ---
 
 ## How to Use This Installer
 
 ### Quick Start (Interactive)
+
 ```bash
 chmod +x bin/bootstrap.sh
 sudo bin/bootstrap.sh
 ```
 
 ### Non-Interactive (CI/CD)
+
 ```bash
 sudo bin/bootstrap.sh --yes
 ```
 
 ### Test Before Installing (Dry-Run)
+
 ```bash
 sudo bin/bootstrap.sh --dry-run --verbose
 ```
 
 ### Check System Compatibility
+
 ```bash
 python3 -m darc_installer.cli --diagnose
 ```
@@ -429,12 +460,12 @@ Codebase:
   - Bash code:        32 lines (1 file)
   - Python code:      1,214 lines (6 files)
   - Total code:       1,246 lines
-  
+
 Documentation:
   - Technical doc:    625 lines
   - README:           250+ lines
   - Total doc:        875+ lines
-  
+
 Project Total:        2,100+ lines (code + docs)
 
 Modules:

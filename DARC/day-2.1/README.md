@@ -43,18 +43,18 @@ Python CLI (60 lines)
     ├── UI & Menus (301 lines)
     ├── Ollama Integration (111 lines)
     └── Main Orchestrator (620 lines)
-    
+
 Total: 1,246 lines of production-grade code
 ```
 
 ## Installation Modes
 
-| Mode | Command | Use Case |
-|------|---------|----------|
-| **Interactive** | `sudo bin/bootstrap.sh` | Manual installation with full control |
-| **Non-Interactive** | `sudo bin/bootstrap.sh --yes` | Automated installs (CI/CD, scripts) |
-| **Dry-Run** | `sudo bin/bootstrap.sh --dry-run --verbose` | Test without making changes |
-| **Diagnostic** | `sudo bin/bootstrap.sh --diagnose` | Check system compatibility |
+| Mode                | Command                                     | Use Case                              |
+| ------------------- | ------------------------------------------- | ------------------------------------- |
+| **Interactive**     | `sudo bin/bootstrap.sh`                     | Manual installation with full control |
+| **Non-Interactive** | `sudo bin/bootstrap.sh --yes`               | Automated installs (CI/CD, scripts)   |
+| **Dry-Run**         | `sudo bin/bootstrap.sh --dry-run --verbose` | Test without making changes           |
+| **Diagnostic**      | `sudo bin/bootstrap.sh --diagnose`          | Check system compatibility            |
 
 ## File Structure
 
@@ -77,28 +77,33 @@ DARC/day-2.1/
 ## Key Components
 
 ### 1. **Bash Wrapper** (`bootstrap.sh`)
+
 - Minimal, auditable entry point
 - Checks root privileges and Python availability
 - Delegates to Python CLI
 
 ### 2. **System Abstraction** (`system.py`)
+
 - Detects Linux distribution automatically
 - Abstracts package managers (apt, dnf, pacman, zypper)
 - Provides safe subprocess execution with dry-run support
 
 ### 3. **User Interface** (`ui.py`)
+
 - Interactive model and component selection menus
 - Colored console output (green/red/yellow/blue)
 - Installation summary display
 - Over 40 predefined AI models and components
 
 ### 4. **Ollama Integration** (`ollama.py`)
+
 - Detects if Ollama is already installed
 - Automatic download and installation
 - Model pulling with adaptive retry logic
 - Status checks via HTTP API
 
 ### 5. **Main Orchestrator** (`installer.py`)
+
 - Preflight system checks (disk, RAM, network)
 - Environment setup (directories, Python venv)
 - Installation of system dependencies
@@ -170,7 +175,9 @@ python3 -m darc_installer.cli --yes --verbose
 ## Features
 
 ### ✅ Dry-Run Mode
+
 All operations are printed but not executed. Perfect for:
+
 - Testing on a new system
 - CI/CD validation
 - Documentation
@@ -181,7 +188,9 @@ sudo bin/bootstrap.sh --dry-run --verbose
 ```
 
 ### ✅ Non-Interactive Mode
+
 Auto-accept all prompts. Perfect for:
+
 - Automated deployments
 - Container builds
 - Cloud infrastructure
@@ -192,18 +201,24 @@ sudo bin/bootstrap.sh --yes
 ```
 
 ### ✅ Comprehensive Logging
+
 Every action is logged to both:
+
 - **Console**: Color-coded real-time feedback
 - **File**: `/opt/darc-ai/logs/installer.log` for auditing
 
 ### ✅ Idempotent Operations
+
 Safe to re-run at any time:
+
 - Skips already-installed packages
 - Skips already-created directories
 - Updates existing configuration cleanly
 
 ### ✅ Multi-Distro Support
+
 Automatically detects and adapts to:
+
 - Debian/Ubuntu (apt)
 - Fedora/RHEL (dnf)
 - Arch Linux (pacman)
@@ -212,22 +227,26 @@ Automatically detects and adapts to:
 ## Troubleshooting
 
 ### Check System Compatibility
+
 ```bash
 python3 -m darc_installer.cli --diagnose
 ```
 
 ### View Installation Log
+
 ```bash
 tail -f /opt/darc-ai/logs/installer.log
 ```
 
 ### Test Ollama Installation
+
 ```bash
 ollama list
 ollama status
 ```
 
 ### Restart AI Controller
+
 ```bash
 sudo systemctl restart darc-ai
 sudo systemctl status darc-ai
@@ -321,6 +340,7 @@ Advanced Modular AI Framework
 ## Support
 
 For issues or questions:
+
 1. Check the diagnostic output: `python3 -m darc_installer.cli --diagnose`
 2. Review the installation log: `/opt/darc-ai/logs/installer.log`
 3. Consult `INSTALLER_DOCUMENTATION.md` for detailed information
