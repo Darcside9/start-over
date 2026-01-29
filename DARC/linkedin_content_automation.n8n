@@ -1,0 +1,317 @@
+{
+  "updatedAt": "2026-01-29T13:33:48.138Z",
+  "createdAt": "2026-01-29T01:38:46.582Z",
+  "id": "ktksbKE16MUw5xpz",
+  "name": "Ethical LinkedIn Automation (MVP - Gemini)",
+  "description": null,
+  "active": false,
+  "isArchived": false,
+  "nodes": [
+    {
+      "parameters": {
+        "path": "ingest-idea",
+        "responseMode": "lastNode",
+        "options": {}
+      },
+      "id": "e4f8d2b1-1234-4321-abcd-1234567890ab",
+      "name": "Webhook Trigger",
+      "type": "n8n-nodes-base.webhook",
+      "typeVersion": 1.1,
+      "position": [
+        112,
+        528
+      ],
+      "webhookId": "e4f8d2b1-1234-4321-abcd-1234567890ab"
+    },
+    {
+      "parameters": {
+        "operation": "insert"
+      },
+      "id": "d4c3b2a1-0000-0000-0000-000000000002",
+      "name": "Supabase: Log Insights",
+      "type": "n8n-nodes-base.supabase",
+      "typeVersion": 1,
+      "position": [
+        1072,
+        304
+      ],
+      "credentials": {
+        "supabaseApi": {
+          "id": "R5l5z0fGTOlVpfbM",
+          "name": "Supabase account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "operation": "update",
+        "tableId": "content_items",
+        "fieldsUi": {
+          "fieldValues": [
+            {
+              "fieldId": "draft_content",
+              "fieldValue": "={{ $json.output }}"
+            },
+            {
+              "fieldId": "status",
+              "fieldValue": "NEEDS_REVIEW"
+            }
+          ]
+        }
+      },
+      "id": "9a8b7c6d-0000-0000-0000-000000000004",
+      "name": "Supabase: Save Draft",
+      "type": "n8n-nodes-base.supabase",
+      "typeVersion": 1,
+      "position": [
+        1680,
+        304
+      ],
+      "credentials": {
+        "supabaseApi": {
+          "id": "R5l5z0fGTOlVpfbM",
+          "name": "Supabase account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "options": {}
+      },
+      "type": "@n8n/n8n-nodes-langchain.agent",
+      "typeVersion": 3.1,
+      "position": [
+        688,
+        304
+      ],
+      "id": "b6f759d1-d0ea-40e4-9dad-6777b787f91b",
+      "name": "AI Agent"
+    },
+    {
+      "parameters": {
+        "options": {}
+      },
+      "type": "@n8n/n8n-nodes-langchain.lmChatGoogleGemini",
+      "typeVersion": 1,
+      "position": [
+        688,
+        496
+      ],
+      "id": "9dd6a257-f932-44bf-bae7-6b45263b2db3",
+      "name": "Google Gemini Chat Model",
+      "credentials": {
+        "googlePalmApi": {
+          "id": "qu6LwWz0O74EWeao",
+          "name": "Google Gemini(PaLM) Api account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "modelId": {
+          "__rl": true,
+          "value": "models/gemini-2.5-pro",
+          "mode": "list",
+          "cachedResultName": "models/gemini-2.5-pro"
+        },
+        "messages": {
+          "values": [
+            {}
+          ]
+        },
+        "jsonOutput": true,
+        "builtInTools": {},
+        "options": {
+          "systemMessage": "=# ROLE\nYou are a Senior Systems Engineer analyzing content to extract transferable logic.\n\n# TASK\nAnalyze the user's input text. Ignore marketing language, emotional appeals, and surface-level summaries.\n\nExtract the **underlying mechanism** that makes the idea work.\n\n# OUTPUT REQUIREMENTS\nRespond ONLY with valid JSON in this exact structure:\n\n{\n  \"core_mechanism\": \"The 'if this, then that' logic or causal chain\",\n  \"builder_perspective\": \"Why this matters to someone building a product or system\",\n  \"transferable_principle\": \"A universal rule or pattern that applies beyond this specific example\",\n  \"missing_pieces\": \"What assumptions or edge cases did the original author not address?\"\n}\n\n# CONSTRAINTS\n- No prose. JSON only.\n- Do not add fields not listed above.\n- If input is unclear, state \"INSUFFICIENT_DATA\" in core_mechanism."
+        }
+      },
+      "type": "@n8n/n8n-nodes-langchain.googleGemini",
+      "typeVersion": 1.1,
+      "position": [
+        304,
+        304
+      ],
+      "id": "0805bc1c-a7a0-4b78-a027-f826c13c4895",
+      "name": "Message a model",
+      "credentials": {
+        "googlePalmApi": {
+          "id": "qu6LwWz0O74EWeao",
+          "name": "Google Gemini(PaLM) Api account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "formTitle": "content idea",
+        "formDescription": "Content ideas for Linkedin post",
+        "formFields": {
+          "values": [
+            {
+              "fieldName": "Source Type",
+              "fieldLabel": "source type",
+              "fieldType": "checkbox",
+              "fieldOptions": {
+                "values": [
+                  {
+                    "option": "LinkedIn"
+                  },
+                  {
+                    "option": "Video"
+                  },
+                  {
+                    "option": "Article"
+                  },
+                  {
+                    "option": "Image"
+                  }
+                ]
+              }
+            },
+            {
+              "fieldName": "Source text",
+              "fieldLabel": "source text",
+              "fieldType": "textarea"
+            },
+            {
+              "fieldName": "your angle",
+              "fieldLabel": "your angle"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.formTrigger",
+      "typeVersion": 2.4,
+      "position": [
+        112,
+        304
+      ],
+      "id": "80f89155-da63-471c-aed0-686032f8d543",
+      "name": "On form submission",
+      "webhookId": "f46ca3eb-f914-485e-b566-d1b3d4682380"
+    }
+  ],
+  "connections": {
+    "Webhook Trigger": {
+      "main": [
+        []
+      ]
+    },
+    "Supabase: Log Insights": {
+      "main": [
+        [
+          {
+            "node": "Supabase: Save Draft",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "AI Agent": {
+      "main": [
+        [
+          {
+            "node": "Supabase: Log Insights",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Google Gemini Chat Model": {
+      "ai_languageModel": [
+        [
+          {
+            "node": "AI Agent",
+            "type": "ai_languageModel",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Message a model": {
+      "main": [
+        []
+      ]
+    },
+    "On form submission": {
+      "main": [
+        [
+          {
+            "node": "Message a model",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "settings": {
+    "callerPolicy": "workflowsFromSameOwner",
+    "availableInMCP": false
+  },
+  "staticData": null,
+  "meta": {
+    "templateCredsSetupCompleted": true
+  },
+  "pinData": {},
+  "versionId": "2de248f1-6874-40a9-83ca-5bab0a2d46e0",
+  "activeVersionId": null,
+  "versionCounter": 6,
+  "triggerCount": 0,
+  "shared": [
+    {
+      "updatedAt": "2026-01-29T01:38:46.586Z",
+      "createdAt": "2026-01-29T01:38:46.586Z",
+      "role": "workflow:owner",
+      "workflowId": "ktksbKE16MUw5xpz",
+      "projectId": "JuQxAZpeuesC2iWT",
+      "project": {
+        "updatedAt": "2026-01-14T03:15:06.282Z",
+        "createdAt": "2026-01-14T03:14:06.912Z",
+        "id": "JuQxAZpeuesC2iWT",
+        "name": "Fujah darcside999@gmail.com <darcside999@gmail.com>",
+        "type": "personal",
+        "icon": null,
+        "description": null,
+        "creatorId": "778940b8-092e-4dbb-ac24-74c17029c127",
+        "projectRelations": [
+          {
+            "updatedAt": "2026-01-14T03:14:06.912Z",
+            "createdAt": "2026-01-14T03:14:06.912Z",
+            "userId": "778940b8-092e-4dbb-ac24-74c17029c127",
+            "projectId": "JuQxAZpeuesC2iWT",
+            "user": {
+              "updatedAt": "2026-01-29T13:21:10.000Z",
+              "createdAt": "2026-01-14T03:14:06.115Z",
+              "id": "778940b8-092e-4dbb-ac24-74c17029c127",
+              "email": "darcside999@gmail.com",
+              "firstName": "Fujah",
+              "lastName": "darcside999@gmail.com",
+              "personalizationAnswers": {
+                "version": "v4",
+                "personalization_survey_submitted_at": "2026-01-14T03:15:31.064Z",
+                "personalization_survey_n8n_version": "2.2.6",
+                "companySize": "<20",
+                "companyType": "saas",
+                "role": "business-owner",
+                "reportedSource": "google"
+              },
+              "settings": {
+                "userActivated": false,
+                "easyAIWorkflowOnboarded": true
+              },
+              "disabled": false,
+              "mfaEnabled": false,
+              "lastActiveAt": "2026-01-29",
+              "isPending": false
+            }
+          }
+        ]
+      }
+    }
+  ],
+  "tags": [],
+  "activeVersion": null
+}
